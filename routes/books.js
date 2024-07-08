@@ -13,7 +13,7 @@ router.get('/books', (req, res) => {
     const {books} = stor
     //res.status(200)
     res.json(books)
-})
+}) 
 
 // 3. получить книгу по ID
 router.get('/books/:id', (req, res) => {
@@ -36,8 +36,8 @@ router.get('/books/:id', (req, res) => {
 // 4. создать книгу
 router.post('/books', (req, res) => {
     // создаём книгу и возвращаем её же вместе с присвоенным ID
-    const {title, description, authors, favorite, fileCover, fileName} = req.body
-    const newBook = new cBook(title, description, authors, favorite, fileCover, fileName)
+    const {title, description, authors, favorite, fileCover, fileName, fileBook} = req.body
+    const newBook = new cBook(title, description, authors, favorite, fileCover, fileName, fileBook)
 
     const {books} = stor
     books.push(newBook)

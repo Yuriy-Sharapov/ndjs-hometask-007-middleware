@@ -3,7 +3,15 @@ const { v4: uuid } = require('uuid')
 
 class cBook{
 
-    constructor(title = "", description = "", authors = "", favorite = false, fileCover = "", fileName = "", id = uuid()){
+    constructor(
+            title       = "",
+            description = "", 
+            authors     = "",
+            favorite    = false,
+            fileCover   = "",
+            fileName    = "",
+            fileBook    = "",
+            id          = uuid()){
         
         this.title       = title
         this.description = description
@@ -11,6 +19,7 @@ class cBook{
         this.favorite    = favorite
         this.fileCover   = fileCover
         this.fileName    = fileName
+        this.fileBook    = fileBook
         this.id          = id
 
     }
