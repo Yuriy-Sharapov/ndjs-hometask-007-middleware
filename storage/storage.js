@@ -5,32 +5,30 @@ const stor = {
 
     books: [
         new cBook(
-            title       = "Война и мир", 
+            title       = "The Twelve-Factor App (Русский перевод)", 
             description = "Интересная книга",
-            authors     = "Лев Толстой",
+            authors     = "",
             favorite    = true,
-            fileCover   = "/home/library/war_and_peace.pdf",
-            fileName    = "war_and_peace.pdf",
-            fileBook    = "/home/library/war_and_peace.pdf" ),
+            fileCover   = "public\\books\\TFA.html",
+            fileName    = "TFA.html",
+            fileBook    = "public\\books\\TFA.html" ),
         new cBook(
-            title       = "Трое в лодке, не считая собаку", 
+            title       = "Совершенный код", 
             description = "Очень хорошая книга",
-            authors     = "Джером К. Джером",
+            authors     = "Макконнелл",
             favorite    = true,
-            fileCover   = "/home/library/three_in_a_boat_not_counting_the_dog.pdf",
-            fileName    = "three_in_a_boat_not_counting_the_dog.pdf",
-            fileBook    = "/home/library/three_in_a_boat_not_counting_the_dog.pdf" )
+            fileCover   = "public\\books\\Макконнелл «Совершенный код».pdf",
+            fileName    = "Макконнелл «Совершенный код».pdf",
+            fileBook    = "public\\books\\Макконнелл «Совершенный код».pdf" ),
+        new cBook(
+            title       = "Простоквашино", 
+            description = "Отличная книга для детей",
+            authors     = "Э. Успенский",
+            favorite    = true,
+            fileCover   = "err/err/Простоквашино.pdf",
+            fileName    = "Простоквашино.pdf",
+            fileBook    = "err/err/Простоквашино.pdf" )            
     ],
 }
 
 module.exports = stor
-
-// {
-//     "title": "Простоквашино",
-//     "description": "Хорошая книга",
-//     "authors": "Э. Успенский",
-//     "favorite": true,
-//     "fileCover": "/home/library/prostokvashino.pdf",
-//     "fileName": "prostokvashino.pdf",
-//     "fileBook": "/home/library/prostokvashino.pdf"
-// }

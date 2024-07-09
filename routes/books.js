@@ -3,6 +3,9 @@ const express = require('express')
 const router = express.Router()
 module.exports = router
 
+const fs = require('fs');
+const path = require('path');
+
 const stor = require('../storage/storage')
 const cBook = require('../classes/cBook')
 
@@ -89,3 +92,43 @@ router.delete('/books/:id', (req, res) => {
         res.json("Книга не найдена") 
     }    
 })   
+
+// Скачать книгу
+// router.get('/books/:id/download', (req, res) => {
+
+//     const {id} = req.params
+//     const fullname = `${__dirname}\\..\\public\\books\\${id}`
+//     //res.json(fullname)
+
+//     const fixpath = `D:\\Юра\\Работа\\Гринатом\\NodeJS\\007 - middleware\\ndjs-hometask-007-middleware\\public\\${id}`
+//     res.json(fixpath)
+//     //express.static(fixpath) // даем возможность пользователю скачать файл
+// }) 
+
+router.get('/books/:id/download', (req, res) => {
+
+    const {books} = stor
+    const {id} = req.params
+    
+    // Ищем книгу в хранилище по названию, которое передали через параметры
+    // В хранилище книга должна иметь сответствующее название fileName
+    const idx = books.findIndex( el => el.fileName === id)    
+    
+    if (idx == -1)
+        return res.status(404).send('Книга не найдена')
+    
+    // Формируем путь до книги
+    const filePath = path.resolve(__dirname, "..", books[idx].fileBook)
+
+    // Проверка, существует ли файл
+    fs.access(filePath, fs.constants.F_OK, (err) => {
+        if (err) 
+            return res.status(404).send('Файл не найден')
+
+        // Отправка файла на скачивание
+        res.download(filePath, err => {
+            if (err)
+                res.status(500).send('Ошибка при скачивании файла')
+        })
+    })
+})

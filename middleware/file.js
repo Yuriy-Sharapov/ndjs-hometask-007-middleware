@@ -11,6 +11,8 @@ const storage = multer.diskStorage({
     }
 })
 
+// module.exports = multer({storage})
+
 // Массив с доступными MIME типами
 const allowedTypes = [      
     'application/pdf',
